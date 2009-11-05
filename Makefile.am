@@ -17,5 +17,8 @@ install-data-local:
 
 	install -m 644 pdf/userconfig.xml $(DESTDIR)$(pkgdatadir)/fop/conf
 
+#	install -d $(DESTDIR)$(pkgdatadir)/sample
+#	install -m 644 sample/Makefile.doc sample/*.xml sample/*.css sample/*.xsl $(DESTDIR)$(pkgdatadir)/sample
+
 rpm: dist
 	rpmbuild --ta $(PACKAGE)-$(VERSION).tar.gz
