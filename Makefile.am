@@ -1,4 +1,4 @@
-SUBDIRS	= packages common css default doc images template xsl
+SUBDIRS	= packages common css default doc images template xsl sample
 
 pkgdata_DATA = README INSTALL NEWS AUTHORS COPYING ChangeLog
 

@@ -23,4 +23,5 @@ dnl     doc/Makefile
 	common/Makefile.cmn
 	pdf/userconfig.xml
 dnl	pdf/mkmetrics
+        sample/Makefile
 	)
