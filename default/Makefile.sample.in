@@ -1,0 +1,10 @@
+## You must set DOCNAME
+DOCNAME = docname
+
+##
+## To customize style, you must copy following files and customize them.
+##
+#HTML_STYLE = @envdir@/default/html.xsl
+#PDF_STYLE = @envdir@/default/pdf.xsl
+
+include @envdir@/common/Makefile.cmn

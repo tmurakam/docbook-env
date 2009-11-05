@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<fop version="1.0">
+  <renderers>
+    <renderer mime="application/pdf">
+      <fonts>
+        <font embed-url="@envdir@/fonts/sazanami-mincho.ttf" kerning="yes">
+          <font-triplet name="Arial" style="normal" weight="normal"/>
+          <font-triplet name="SananamiMincho" style="normal" weight="normal"/>
+        </font>
+        <font embed-url="@envdir@/fonts/sazanami-gothic.ttf" kerning="yes">
+          <font-triplet name="SananamiGothic" style="normal" weight="normal"/>
+        </font>
+      </fonts>
+    </renderer>
+  </renderers>
+</fop>
+

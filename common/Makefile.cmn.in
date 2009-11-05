@@ -1,0 +1,59 @@
+# You need to specify following variables in your Makefile
+#   DOCNAME	= foo (document name)
+
+XMLFILE         = $(DOCNAME).xml
+
+ENVDIR		?= @envdir@
+
+#MULTI_XSLFILE   = $(ENVDIR)/xsl/html-chunk.xsl
+#ONE_XSLFILE     = $(ENVDIR)/xsl/html-onechunk.xsl
+
+HTML_STYLE	?= $(ENVDIR)/default/html.xsl
+PDF_STYLE	?= $(ENVDIR)/default/pdf.xsl
+HTMLHELP_STYLE	?= $(ENVDIR)/default/htmlhelp.xsl
+MAN_STYLE	?= $(ENVDIR)/default/man.xsl
+
+XSLTPROC	= xsltproc --xinclude
+
+ifeq ($(OUTDIR),)
+	OUTDIR		= .
+endif
+
+all:    htmlout
+
+htmlout: $(XMLFILE)
+	$(XSLTPROC) -o $(OUTDIR) $(HTML_STYLE) $(XMLFILE)
+
+setup:
+	mkdir -p $(OUTDIR)/images
+	cp $(ENVDIR)/images/*.png $(OUTDIR)/images
+	cp $(ENVDIR)/css/*.css $(OUTDIR)/
+
+fo: $(DOCNAME).fo
+
+$(DOCNAME).fo: $(XMLFILE)
+	$(XSLTPROC) -o tmp.fo -stringparam admon.graphics 1 -stringparam fop1.extensions 1 $(PDF_STYLE) $<
+	sed 's/xml.apache/xmlgraphics.apache/g' tmp.fo > $(DOCNAME).fo
+	/bin/rm tmp.fo
+
+pdf: $(DOCNAME).pdf
+
+$(DOCNAME).pdf: $(DOCNAME).fo
+	$(ENVDIR)/fop -c $(ENVDIR)/fop/conf/userconfig.xml $< $@
+
+onehtml:
+	$(XSLTPROC) $(ONE_XSLFILE) $(XMLFILE)
+
+text: $(XMLFILE) onehtml
+	lynx -force_html -dump -nolist -width=72 index.html > $(DOCNAME).txt
+
+htmlhelp: $(XMLFILE)
+	$(XSLTPROC) -o $(OUTDIR) $(HTMLHELP_STYLE) $(XMLFILE)	
+
+man: $(XMLFILE)
+	$(XSLTPROC) -o $(OUTDIR) $(MAN_STYLE) $(XMLFILE)
+
+clean:
+	-/bin/rm -rf *.pdf *.ps *.dvi *.aux *.tex *.log *.fo $(OUTDIR)/*.html
+
+#$(OUTDIR)
