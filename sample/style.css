@@ -1,0 +1,132 @@
+/*
+  style.css - a CSS stylesheet for use with HTML output produced by
+  tldp-xsl stylesheets.  Written by Emma Jane Hogbin.  Comments
+  added by David Horton.
+*/
+
+
+body {
+
+/*
+   Style the HMTL <body> tag with a sans-serif font and 5% margin to
+   make text easier to read in a web browser.
+*/
+
+  font-family: sans-serif;
+  margin: 2%;
+}
+
+
+pre {
+
+/*
+   Style <pre> tags with a light gray background and a small indention.
+   HTML <pre> tags are used to represent Docbook XML tags like
+   <programlisting> and <screen>
+*/
+
+	background: #E0E0E0;
+	margin: 0 5%;
+	padding: 5px;
+}
+
+li p {
+        display: inline;
+}
+
+div.table table {
+        width: 95%;
+        background-color: #DCDCDC;
+        color: #000000;
+        border-spacing: 0;
+}
+
+div.table table th {
+        border: 1px solid #A9A9A9;
+        background-color: #EECCCC;
+        color: #000000;
+	font-size: 80%;
+}
+
+div.table table td {
+        border: 1px solid #A9A9A9;
+        background-color: #FFFFEE;
+        color: #000000;
+        padding: 0.5em;
+        margin-bottom: 0.5em;
+        margin-top: 2px;
+	font-size: 80%;
+
+}
+
+div.note table, div.tip table, div.important table, div.caution table, div.warning table {
+        width: 95%;
+        border: 2px solid #B0C4DE;
+        background-color: #F0F8FF;
+        color: #000000;
+        /* padding inside table area */
+        padding: 0.5em;
+        margin-bottom: 0.5em;
+        margin-top: 0.5em;
+}
+
+.qandaset table {
+        border-collapse: collapse;
+}
+.qandaset {
+}
+.qandaset tr.question {
+}
+.qandaset tr.question td {
+        font-weight: bold;
+        padding: 1em 1em 0;
+}
+.qandaset tr.answer td {
+        padding: 0.25em 1em 1.5em;
+}
+.qandaset tr.question td, .qandaset tr.answer td {
+}
+
+hr {
+        border: 0;
+        border-bottom: 1px solid #ccc;
+}
+
+h1, h2, h3, h4 {
+        font-family: luxi sans,sans-serif;
+        color: #990000;
+        font-weight: bold;
+}
+h1 {
+        font-size: 1.75em;
+}
+
+
+h2 {
+        font-size: 1.25em;
+}
+
+
+h3 {
+        font-size: 1.1em;
+}
+
+code.screen, pre.screen {
+        font-family: monospace;
+        font-size: 1em;
+        display: block;
+        padding: 10px;
+        border: 1px solid #bbb;
+        background-color: #eee;
+        color: #000;
+        overflow: auto;
+        border-radius: 2.5px;
+        -moz-border-radius: 2.5px;
+        margin: 0.5em 2em;
+}
+
+div.example {
+        padding: 10px;
+        border: 1px solid #bbb;
+        margin: 0.5em 2em;
+}
