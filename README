@@ -1,0 +1,62 @@
+■■ DocBook 環境
+
+○ 概要
+
+DocBook のツールチェインセットアップ用環境一式です。
+
+
+○ 必要環境
+
+RedHat 系 Linux。RHEL3/4, CentOS 3/4 など。
+Fedora Core では未テストです。
+
+
+○ 事前準備
+
+RedHat 系の場合:
+
+以下のツールを CD-ROM なり yum なりからインストールしておいてください。
+
+ - libxslt : XML 文書変換ツール
+
+また、Java 実行環境が必要です。java.sun.com から JRE or JDK をダウンロード
+しインストールしておいてください。
+
+Ubuntu の場合:
+
+TBD
+
+○ インストール手順
+
+ $ ./configure
+ $ make
+ $ sudo make install
+
+でインストールしてください。あるいは、後述するように RPM を
+作ってインストールしてください。
+
+○ インストールされるもの
+
+/usr/local/share/docbook-env に以下のものがインストールされます。
+
+ - Apache FOP
+ - DocBook xsl
+ - VLゴシックフォント
+ - その他設定ファイル群
+
+○ RPM パッケージの構築
+
+RPM パッケージを作成する場合は以下のツールが必要です。
+
+	- automake
+	- autoconf
+	- make
+	- wget
+
+RPM ファイルの作成は以下のように行います。
+
+ $ ./autogen.sh
+ $ make rpm
+
+このとき、Internet から必要なファイルを自動的にダウンロードしてきますので、
+wget のプロキシの設定は適切に行っておいてください。

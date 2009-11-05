@@ -17,8 +17,5 @@ install-data-local:
 
 	install -m 644 pdf/userconfig.xml $(DESTDIR)$(pkgdatadir)/fop/conf
 
-	install -d $(DESTDIR)$(pkgdatadir)/doc
-	install -m 644 doc/*.xml doc/*.css doc/*.html $(DESTDIR)$(pkgdatadir)/doc
-
 rpm: dist
 	rpmbuild --ta $(PACKAGE)-$(VERSION).tar.gz
