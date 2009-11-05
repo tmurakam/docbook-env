@@ -15,6 +15,9 @@ MAN_STYLE	?= $(ENVDIR)/default/man.xsl
 
 XSLTPROC	= xsltproc --xinclude
 
+FOP             = $(ENVDIR)/fop/fop
+FOP_CONFIG      = $(ENVDIR)/fop/conf/userconfig.xml
+
 ifeq ($(OUTDIR),)
 	OUTDIR		= .
 endif
@@ -39,7 +42,7 @@ $(DOCNAME).fo: $(XMLFILE)
 pdf: $(DOCNAME).pdf
 
 $(DOCNAME).pdf: $(DOCNAME).fo
-	$(ENVDIR)/fop -c $(ENVDIR)/fop/conf/userconfig.xml $< $@
+	$(FOP) -c $(FOP_CONFIG) $< $@
 
 onehtml:
 	$(XSLTPROC) $(ONE_XSLFILE) $(XMLFILE)
