@@ -1,6 +1,8 @@
 SUBDIRS	= packages common css default images template xsl sample
 
-pkgdata_DATA = README INSTALL NEWS AUTHORS COPYING ChangeLog docbook-env.spec
+pkgdata_DATA = README INSTALL NEWS AUTHORS COPYING ChangeLog
+
+EXTRA_DIST = docbook-env.spec
 
 install-data-local:
 	install -d $(DESTDIR)$(pkgdatadir)/default

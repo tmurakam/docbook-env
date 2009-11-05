@@ -8,11 +8,11 @@
 Name: 		%{name}
 Version: 	%{version}
 Release: 	%{release}
-Copyright: 	GPL + BCL
+License: 	GPL
 Group: 		Applications/Publishing
 Source: 	%{name}-%{version}.tar.gz
 Summary: 	DocBook environments.
-Vendor: 	
+#Vendor: 	
 Packager: 	Takuya Murakami <tmurakam@mtd.biglobe.ne.jp>
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
 Requires:	docbook-dtds docbook-utils libxslt
@@ -25,9 +25,11 @@ Also, you need Java, Windows TrueType fonts.
 %prep
 
 %setup
+#./autogen.sh
 ./configure --prefix=%{prefix}
 
 %build
+make
 
 %install
 [ $RPM_BUILD_ROOT != / ] && rm -rf $RPM_BUILD_ROOT
