@@ -1,1 +1,1 @@
-EXTRA_DIST = Makefile.doc sample.xml style.css *.xsl
+EXTRA_DIST = Makefile.doc.in sample.xml style.css *.xsl
