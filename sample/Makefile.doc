@@ -9,4 +9,6 @@ DOCNAME = sample
 #HTML_STYLE = html.xsl
 #PDF_STYLE = pdf.xsl
 
-include /usr/share/docbook-env/common/Makefile.cmn
+ENVDIR = /usr/local/share/docbook-env
+
+include $(ENVDIR)/common/Makefile.cmn

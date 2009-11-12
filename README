@@ -28,7 +28,7 @@ TBD
 
 ○ インストール手順
 
- $ ./configure
+ $ ./configure --prefix=/usr
  $ make
  $ sudo make install
 
@@ -37,7 +37,7 @@ TBD
 
 ○ インストールされるもの
 
-/usr/local/share/docbook-env に以下のものがインストールされます。
+/usr/share/docbook-env に以下のものがインストールされます。
 
  - Apache FOP
  - DocBook xsl
@@ -48,7 +48,8 @@ TBD
 
 サンプルが sample ディレクトリにあります。
 
-make で HTML ファイルが、make pdf で PDF ファイルが生成されます。
+"make -f Makefile.doc" で HTML ファイルが、"make -f Makefile.doc pdf"
+で PDF ファイルが生成されます。
 
 ○ RPM パッケージの構築
 
