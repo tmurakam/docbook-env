@@ -28,13 +28,13 @@ ${vlgothic_tarball}:
 	wget ${vlgothic_url}
 
 ${fop_dir}: ${fop_tarball}
-	tar xzf ${fop_tarball}
+	if [ ! -d ${fop_dir} ]; then tar xzf ${fop_tarball}; fi
 
 ${docbook_xsl_dir}: ${docbook_xsl_tarball}
-	tar xjf ${docbook_xsl_tarball}
+	if [ ! -d ${docbook_xsl_dir} ]; then tar xjf ${docbook_xsl_tarball}; fi
 
 ${vlgothic_dir}: ${vlgothic_tarball}
-	tar xjf ${vlgothic_tarball}
+	if [ ! -d ${vlgothic_dir} ]; then tar xjf ${vlgothic_tarball}; fi
 
 clean-local:
 	-rm -rf ${fop_dir} ${docbook_xsl_dir} ${vlgothic_dir}
