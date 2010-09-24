@@ -1,38 +1,56 @@
-fop = fop-1.0
-docbook_xsl = docbook-xsl-1.76.0
-vlgothic = VLGothic
+fop_ver = 1.0
+docbook_xsl_ver = 1.76.0
+vlgothic_ver = 20100818
+
+fop_dir = fop-${fop_ver}
+fop_tarball = fop-${fop_ver}-bin.tar.gz
+fop_url = http://ftp.kddilabs.jp/infosystems/apache/xmlgraphics/fop/binaries/${fop_tarball}
+
+docbook_xsl_dir = docbook-xsl-${docbook_xsl_ver}
+docbook_xsl_tarball = docbook-xsl-${docbook_xsl_ver}.tar.bz2
+docbook_xsl_url = "http://jaist.dl.sourceforge.net/sourceforge/docbook/${docbook_xsl_tarball}"
+
+vlgothic_tarball = VLGothic-${vlgothic_ver}.tar.bz2
+vlgothic_url = "http://sourceforge.jp/frs/redir.php?m=iij&f=/vlgothic/48642/${vlgothic_tarball}"
+vlgothic_dir = VLGothic
 
 pkgdata_DATA = 
 
-all: download $(fop) $(docbook_xsl) $(vlgothic)
+all: ${fop_dir} ${docbook_xsl_dir} ${vlgothic_dir}
 
-download:
-	./download.sh
+${fop_tarball}:
+	wget ${fop_url}
 
-$(fop):
-	tar xzf $(fop)-bin.tar.gz
+${docbook_xsl_tarball}:
+	wget ${docbook_xsl_url}
 
-$(docbook_xsl):
-	tar xjf $(docbook_xsl).tar.bz2
+${vlgothic_tarball}:
+	wget ${vlgothic_url}
 
-$(vlgothic):
-	tar xjf $(vlgothic)-20100818.tar.bz2
+${fop_dir}: ${fop_tarball}
+	tar xzf ${fop_tarball}
+
+${docbook_xsl_dir}: ${docbook_xsl_tarball}
+	tar xjf ${docbook_xsl_tarball}
+
+${vlgothic_dir}: ${vlgothic_tarball}
+	tar xjf ${vlgothic_tarball}
 
 clean-local:
-	-rm -rf $(fop) $(docbook_xsl) $(vlgothic)
+	-rm -rf ${fop_dir} ${docbook_xsl_dir} ${vlgothic_dir}
 
-install-data-local: install-fop install-docbook_xsl install-font
+install-data-local: all install-fop install-docbook_xsl install-font
 
 install-font:
 	install -d $(DESTDIR)$(pkgdatadir)/fonts
-	install -m 644 $(vlgothic)/*.ttf $(DESTDIR)$(pkgdatadir)/fonts
+	install -m 644 $(vlgothic_dir)/*.ttf $(DESTDIR)$(pkgdatadir)/fonts
 
 install-fop:
 	install -d $(DESTDIR)$(pkgdatadir)
-	cp -r $(fop) $(DESTDIR)$(pkgdatadir)/fop
+	cp -r $(fop_dir) $(DESTDIR)$(pkgdatadir)/fop
 
 install-docbook_xsl:
 	install -d $(DESTDIR)$(pkgdatadir)
-	cp -r $(docbook_xsl) $(DESTDIR)$(pkgdatadir)/docbook-xsl
+	cp -r $(docbook_xsl_dir) $(DESTDIR)$(pkgdatadir)/docbook-xsl
 
-EXTRA_DIST = download.sh
+EXTRA_DIST = # download.sh
