@@ -1,5 +1,5 @@
-fop = fop-0.95
-docbook_xsl = docbook-xsl-1.75.2
+fop = fop-1.0
+docbook_xsl = docbook-xsl-1.76.0
 vlgothic = VLGothic
 
 pkgdata_DATA = 
@@ -16,7 +16,7 @@ $(docbook_xsl):
 	tar xjf $(docbook_xsl).tar.bz2
 
 $(vlgothic):
-	tar xjf $(vlgothic)-20090811.tar.bz2
+	tar xjf $(vlgothic)-20100818.tar.bz2
 
 clean-local:
 	-rm -rf $(fop) $(docbook_xsl) $(vlgothic)

@@ -1,3 +1,10 @@
+2010/9/24: Takuya Murakami <tmurakam@tmurakam.org>
+	* update fop, docbook-xsl, VLGothic packages
+
+2010/7/5: Takuya Murakami <tmurakam@tmurakam.org>
+	* fix README (add origin URL)
+	* include autogen.sh
+
 2009/11/5: Takuya Murakami <tmurakam@tmurakam.org>
 	* ver 1.0.5
 	* Initial git commit

@@ -2,7 +2,7 @@ SUBDIRS	= packages common css default images template xsl sample
 
 pkgdata_DATA = README INSTALL NEWS AUTHORS COPYING ChangeLog
 
-EXTRA_DIST = docbook-env.spec
+EXTRA_DIST = docbook-env.spec autogen.sh
 
 install-data-local:
 	install -d $(DESTDIR)$(pkgdatadir)/default

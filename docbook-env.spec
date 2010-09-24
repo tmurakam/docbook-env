@@ -1,5 +1,5 @@
 %define name	docbook-env
-%define version	1.0.5
+%define version	1.0.6
 %define release	1
 
 %define	prefix	/usr
