@@ -1,6 +1,6 @@
 fop_ver = 1.0
-docbook_xsl_ver = 1.76.0
-vlgothic_ver = 20100818
+docbook_xsl_ver = 1.77.1
+vlgothic_ver = 20120928
 
 fop_dir = fop-${fop_ver}
 fop_tarball = fop-${fop_ver}-bin.tar.gz
@@ -11,7 +11,7 @@ docbook_xsl_tarball = docbook-xsl-${docbook_xsl_ver}.tar.bz2
 docbook_xsl_url = "http://jaist.dl.sourceforge.net/sourceforge/docbook/${docbook_xsl_tarball}"
 
 vlgothic_tarball = VLGothic-${vlgothic_ver}.tar.bz2
-vlgothic_url = "http://sourceforge.jp/frs/redir.php?m=iij&f=/vlgothic/48642/${vlgothic_tarball}"
+vlgothic_url = "http://sourceforge.jp/frs/redir.php?m=iij&f=%2Fvlgothic%2F56952%2F${vlgothic_tarball}"
 vlgothic_dir = VLGothic
 
 pkgdata_DATA = 
@@ -25,7 +25,7 @@ ${docbook_xsl_tarball}:
 	wget ${docbook_xsl_url}
 
 ${vlgothic_tarball}:
-	wget ${vlgothic_url}
+	wget ${vlgothic_url} -O ${vlgothic_tarball}
 
 ${fop_dir}: ${fop_tarball}
 	if [ ! -d ${fop_dir} ]; then tar xzf ${fop_tarball}; fi
